@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>灵活的小方块</title>
+    <style type="text/css">
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .chessb {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        .chessb td {
+            border: 1px solid #000;
+            width: 30px;
+            height: 30px;
+        }
+        .colorBox {
+            background: yellow;
+        }
+        .colorBox2 {
+            background-color: #fff;
+        }
+        .colordiv1 {
+            background-color: blue;
+            height: 10px;
+            margin-top: -15px;
+        }
+        .colordiv2 {
+            background-color: blue;
+            width: 10px;
+            height: 30px;
+            float: right;
+        }
+        .colordiv3 {
+            background-color: blue;
+            height: 10px;
+            margin-top: 20px;
+        }
+        .colordiv4 {
+            background-color: blue;
+            width: 10px;
+            height: 30px;
+            float: left;
+        }
+        .tablehead td,.tableleft td{
+            /* border: ;*/
+            border: 1px solid #fff;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        .tableleft {
+            /*position: absolute;*/
+            border: 1px solid #fff;
+            border-collapse: collapse;
+            float: left;
+            top :30px;
+        }
+        .tablehead {
+            border: 1px solid #fff;
+            border-collapse: collapse;
+            margin-left: 32px;
+        }
+        .bttt {
+            margin-left: 32px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div>
+    <table class="tablehead">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+    </table>
+    <table class="tableleft">
+        <tr>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>10</td>
+        </tr>
+    </table>
+    <table id="chessBoard" class="chessb"></table>
+    <div class="bttt">
+        <button id="topGo">向上</button>
+        <button id="lif">向左</button>
+        <button id="rig">向右</button>
+        <button id="bac">向下</button>
+        <br>
+        <button id="notTop">转上不走</button>
+        <button id="notRight">转右不走</button>
+        <button id="notButton">转下不走</button>
+        <button id="notLeft">转左不走</button>
+        <button id="go">GO</button>
+    </div>
+</div>
+<script type="text/javascript">
+//获取元素
+var chessBoard = document.getElementById('chessBoard');
+var rig = document.getElementById('rig');
+var bac = document.getElementById('bac');
+var goTop = document.getElementById('topGo');
+var lif = document.getElementById('lif');
+
+var zTop = document.getElementById('notTop');
+var zRight = document.getElementById('notRight');
+var zButton = document.getElementById('notButton');
+var zLeft = document.getElementById('notLeft');
+var go = document.getElementById('go');
+
+//按钮事件绑定
+goTop.addEventListener("click",runTop);
+lif.addEventListener("click",runLeft);
+rig.addEventListener("click",runRight);
+bac.addEventListener("click",runBt);
+
+zTop.addEventListener("click",zFTop);
+zRight.addEventListener("click",zFRight);
+zButton.addEventListener("click",zFButton);
+zLeft.addEventListener("click",zFLeft);
+go.addEventListener("click",Fgo);
+
+//制作一个10*10棋盘块
+function board(argument) {
+    // body...
+    for (var i = 0; i < 10; i++) {
+        var tr = document.createElement("tr");
+        chessBoard.appendChild(tr);
+        for (var j = 0; j < 10; j++) {
+            var td = document.createElement("td");
+            tr.appendChild(td);
+        }
+    }
+}
+board();
+//遍历棋盘
+var arr = chessBoard.getElementsByTagName('tr');
+for (var i = 0; i < arr.length; i++) {
+    arr[i] = new Array();
+    var newArr = arr[i].getElementsByTagName('td');
+    for (var j = 0; j < newArr.length; j++) {
+        arr[i][j] = newArr[j];
+    }
+}
+
+//设置初始位置,和初始方块
+var i = 3 ;
+var j = 3 ;
+arr[i][j].setAttribute("class","colorBox");
+var angle;
+var div1 =document.createElement("div");
+arr[i][j].appendChild(div1);
+div1.setAttribute("class","colordiv1");
+//向上
+function runTop() {
+    if (i > 0) {
+        i--;
+        console.log(i);
+        arr[i][j].setAttribute("class","colorBox");
+        arr[i+1][j].setAttribute("class","colorBox2");
+        angle = 0;
+        overTurn();
+        arr[i+1][j].getElementsByTagName('div')[0].remove(0);
+    } else {
+        alert("到底了");
+    }
+}
+//向下
+function runBt(argument) {
+    if (i < 9) {
+        i++;
+        arr[i][j].setAttribute("class","colorBox");
+        arr[i-1][j].setAttribute("class","colorBox2");
+        angle = 2;
+        overTurn();
+        arr[i-1][j].getElementsByTagName('div')[0].remove(0);
+    } else {
+        alert("到底了");
+    }
+}
+
+//run left
+function runLeft() {
+    if (j > 0) {
+        j--;
+        arr[i][j].setAttribute("class","colorBox");
+        arr[i][j+1].setAttribute("class","colorBox2");
+        angle = 3;
+        overTurn();
+        arr[i][j+1].getElementsByTagName('div')[0].remove(0);
+    } else {
+        alert("到底了");
+    }
+}
+//run right
+function runRight() {
+    if (j < 9) {
+        j++;
+        arr[i][j].setAttribute("class","colorBox");
+        arr[i][j-1].setAttribute("class","colorBox2");
+        angle = 1;
+        overTurn();
+        arr[i][j-1].getElementsByTagName('div')[0].remove(0);
+    } else {
+        alert("到底了");
+    }
+}
+
+//翻转
+function overTurn(argument) {
+    var div1 =document.createElement("div");
+    arr[i][j].appendChild(div1);
+    switch(angle){
+        case 0:
+        console.log(angle);
+        div1.setAttribute("class","colordiv1");
+        break;
+        case 1:
+        div1.setAttribute("class","colordiv2");
+        break;
+        case 2:
+        div1.setAttribute("class","colordiv3");
+        break;
+        case 3:
+        div1.setAttribute("class","colordiv4");
+        break;
+    }
+}
+function zFTop(argument) {
+    // body...
+    arr[i][j].getElementsByTagName('div')[0].remove(0);
+    angle = 0;
+    overTurn();
+}
+function zFRight(argument) {
+    // body...
+    arr[i][j].getElementsByTagName('div')[0].remove(0);
+    angle = 1;
+    overTurn();
+}
+function zFButton(argument) {
+    // body...
+    arr[i][j].getElementsByTagName('div')[0].remove(0);
+    angle = 2;
+    overTurn();
+}
+function zFLeft(argument) {
+    // body...
+    arr[i][j].getElementsByTagName('div')[0].remove(0);
+    angle = 3;
+    overTurn();
+}
+function Fgo(argument) {
+    // body...
+    switch (angle){
+        case 0:
+        runTop();
+        break;
+        case 1:
+        runRight();
+        break;
+        case 2:
+        runBt();
+        break;
+        case 3:
+        runLeft();
+        break;
+    }
+
+}
+
+        // case 0:arr[i][j].style.transform = "rotate(0)";
+        // case 1:arr[i][j].style.transform = "rotate(90deg)";
+        // case 2:arr[i][j].style.transform = "rotate(180deg)";
+        // case 3:arr[i][j].style.transform = "rotate(270deg)";
+
+ 
+    //建立一个二维数组收集数据
+    // function buildTree(argument) {
+    //     // body...
+    //     for (var i = 0; i < 10; i++) {
+    //         arr[i] = new Array();
+    //         for (var j = 0; j < 10; j++) {
+    //             console.log(i);
+    //             arr[i][j] = j;
+    //         }            
+    //     }
+    // }
+    // buildTree();
+    // 
+    //开始
+
+
+</script>
+
+</body>
+</html>
