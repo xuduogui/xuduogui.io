@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>多个表单验证</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		p {
+			font: 5px "宋体";
+			color: rgb(169,169,169);
+			min-height: 14px;
+		}
+		fieldset {
+			display: inline;
+			border: none;
+		}
+		div {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+		input {
+			width: 300px;
+			height: 30px;
+			border-radius: 5px;
+			border: 1px solid;
+			line-height: 30px;
+			font-size: 16px;
+		}
+		input:focus {
+			outline: none;
+		}
+		button:focus {
+			outline: none;
+		}
+		.move {
+			animation: myMove 1s;
+		}
+		@keyframes myMove {
+			0% {background-color: rgb(47,121,186);}
+			50% {background-color: yellow;}
+			100% {background-color: rgb(47,121,186);}
+		}
+		button {
+			
+			height: 30px;
+			width: 50px;
+			font-size: 16px;
+			background-color: rgb(47,121,186);
+			border-radius: 5px;
+			border: 0;
+			margin-left: 10px;
+		}
+		span {
+			font: bold 18px "黑体";
+			width: 100px;
+			display: flex;
+			justify-content: center;
+			margin-top: 7px;
+		}
+	</style>
+</head>
+<body>
+	<div><span>用户名</span><fieldset><input type="text" name="1"><p></p></fieldset></div>
+	<div><span>密码</span><fieldset><input type="password" name="1"><p></p></fieldset></div>
+	<div><span>密码确认</span><fieldset><input type="password" name="1"><p></p></fieldset></div>
+	<div><span>邮箱</span><fieldset><input type="text" name="1"><p></p></fieldset></div>
+	<div><span>手机号码</span><fieldset><input type="text" name="1"><p></p></fieldset><button id="hidden" class="move">验证</button></div>
+	
+<script type="text/javascript">
+	// function myMove(argument) {
+	// 	// 设置按钮动画
+	// 	var myMove = document.getElementById('hidden');
+	// 	myMove.addEventListener("animationend",function(){
+	// 		myMove.classList.remove("move");
+	// 	})
+	// }
+	// myMove();
+
+	// var bt1 = document.getElementById('bt1');
+	// var bt2 = document.getElementById('bt2');
+	var bt3 = document.getElementById('bt3');
+	var pList = document.getElementsByTagName('p');
+	var inputList = document.getElementsByTagName('input');
+function nameSure(argument) {
+	inputList[0].onfocus = function() {
+		pList[0].innerHTML = "必填，长度为4~16个字符";
+	}
+	inputList[0].onblur = function() {
+		var inputText = inputList[0].value;
+		if (inputText.length>3 && inputText.length<16) {
+			pList[0].innerHTML = "输入正确";
+			inputList[0].style.borderColor = "green";
+			pList[0].style.color = "green";
+		} else {
+			inputList[0].style.borderColor = "red";
+			pList[0].style.color = "red";
+		}
+	}
+}
+
+function passSure(argument) {
+	
+
+	inputList[1].onfocus = function() {
+		pList[1].innerHTML = "请输入最少六位数的密码,不能含有空格";
+	}
+	inputList[1].onblur = function() {
+		var inputText = inputList[1].value;
+		if (inputText.length>5 && inputText) {
+			pList[1].innerHTML = "密码可用";
+			inputList[1].style.borderColor = "green";
+			pList[1].style.color = "green";
+		} else {
+			inputList[1].style.borderColor = "red";
+			pList[1].style.color = "red";
+		}
+	}
+}
+passSure();
+passTw2Sure();
+eMailSure();
+phoneSure();
+nameSure();
+function passTw2Sure(argument) {
+	inputList[2].onfocus = function() {
+		pList[2].innerHTML = "请再输入相同的密码";
+	}
+	inputList[2].onblur = function() {
+		var inputText1 = inputList[1].value;
+		var inputText = inputList[2].value;
+		console.log(inputText1);
+		console.log(inputText);
+		if (inputText.length>3 && inputText == inputText1 && inputText) {
+			pList[2].innerHTML = "密码输入一致";
+			inputList[2].style.borderColor = "green";
+			pList[2].style.color = "green";
+		} else {
+			inputList[2].style.borderColor = "red";
+			pList[2].style.color = "red";
+		}
+	}
+}
+
+function eMailSure(argument) {
+	inputList[3].onfocus = function() {
+		pList[3].innerHTML = "请输入您的邮箱地址";
+	}
+	inputList[3].onblur = function() {
+		var inputText = inputList[0].value;
+		var pettern = /^[_".0-9a-z-]+@([0-9a-z][0-9a-z-]+".){1,4}[a-z]{2,3}$/i;//此处抄写了网上的邮箱验证正则
+		var verify = pettern.test(inputText);
+		if (verify) {
+			pList[3].innerHTML = "邮箱格式正确";
+			inputList[3].style.borderColor = "green";
+			pList[3].style.color = "green";
+		} else {
+			pList[3].innerHTML = "邮箱格式错误";
+			inputList[3].style.borderColor = "red";
+			pList[3].style.color = "red";
+		}
+	}
+}
+function phoneSure(argument) {
+	inputList[4].onfocus = function() {
+		pList[4].innerHTML = "输入手机号码";
+	}
+	inputList[4].onblur = function() {
+		var inputText = inputList[4].value;
+		if (inputText.length != 11 || isNaN(inputText)) {
+			pList[4].innerHTML = "手机号码格式错误";
+			inputList[4].style.borderColor = "red";
+			pList[4].style.color = "red";
+		} else {
+			pList[4].innerHTML = "输入正确";
+			inputList[4].style.borderColor = "green";
+			pList[4].style.color = "green";
+		}
+	}
+}
+
+		// body...
+		// var inputText = inputList[0].value;
+		// if (inputText.length>3 && inputText.length<16 && inputText) {
+		// 	
+		// 	
+		// 	pList[0].style.color = "green"
+		// } else {
+		// 	
+		// 	
+		// 	
+		// }
+		
+	// bt2.onclick = function (argument) {
+	// 	// body...
+	// 	var inputText = inputList[1].value;
+	// 	if (inputText.indexOf(" ") == -1 && inputText) {
+	// 		pList[1].innerHTML = "输入正确";
+	// 		inputList[1].style.borderColor = "green"
+	// 		pList[1].style.color = "green"
+	// 	} else {
+	// 		pList[1].innerHTML = "姓名不能为空";
+	// 		inputList[1].style.borderColor = "red";
+	// 		pList[1].style.color = "red"
+	// 	}
+	// }	
+	// bt3.onclick = function (argument) {
+	// 	// body...
+	// 	var inputText = inputList[2].value;
+	// 	if (inputText.length>3 && inputText) {
+	// 		pList[2].innerHTML = "名称格式正确";
+	// 		inputList[2].style.borderColor = "green";
+	// 		pList[2].style.color = "green"
+	// 	} else {
+	// 		pList[2].innerHTML = "请输入多余3个字符";
+	// 		inputList[2].style.borderColor = "red";
+	// 		pList[2].style.color = "red"
+	// 	}
+	// }
+</script>
+
+</body>
+</html>
