@@ -1,0 +1,996 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	min-width: 1000px;
+	overflow-x: hidden;
+	position: relative;
+	z-index: -2;
+}
+a {
+	text-decoration: none;
+}
+/*网页头部链接搜索部分*/
+.headBox {
+	position: relative;
+	width: 1000px;
+	margin: auto;
+	color: #a5a5a5;
+	height: 34px;
+	z-index: 10;
+}
+.headBox a {
+	color: #a5a5a5;
+}
+
+/*头部链接*/
+.headLink {
+	font: 12px "微软雅黑";
+	width: 80%;
+	display: inline;
+	overflow: hidden;
+}
+.headLink span {
+	position: relative;
+	display: block;
+	/*margin-right: -1px;*/
+	float: left;
+	/*border-right: 1px solid #a5a5a5;*/
+	/*padding: 0px 10px;*/
+	line-height: 12px;
+	height: 13px;
+	text-align: center;
+	margin: 5px 0 -1px 0px;
+	padding: 5px 0 10px 0;
+	/*margin: 10px 0;*/
+}
+.aList1 {
+	padding: 0 20px 0 15px;
+	display: block;
+	border-right: 1px solid #ddd;
+	margin-right: -1px;
+}
+.aList1:after {
+	content: "";
+	border-top: 4px solid #999;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	position: absolute;
+	top: 9px;
+	margin-left: 3px;
+}
+/*.headonly {
+	border-right: none !important;
+}*/
+.aJsAdd {
+	border: 1px solid #ddd;
+	border-bottom: none;
+	/*height: 14px;*/
+	/*padding: 5px 10px 0 10px;
+	margin: 5px 0 0 0;*/
+	/*margin: 5px 0;*/
+}
+/*隐藏列表部分*/
+.hLinkOne {
+	display: none;
+	/*display: block;*/
+	position: absolute;
+	top: 28px;
+	left: 19px;
+	text-align: left;
+	background: #fff;
+	margin-left: -20px;
+    width: 220px;
+    padding: 10px;
+    padding-top: 0;
+    box-shadow: 0 2px 5px;
+}
+.hLinkOne ol {
+	list-style: none;
+	line-height: 22px;
+}
+.hLinkOne li {
+	border-bottom: 1px solid #a5a5a5;
+	color: blue;
+	margin: 0 6px;
+	width: 200px;
+	padding: 0 0 0 10px;
+	background: url(https://image.wanda.cn/statics/images/web/ps1/ico/dotgraysmall.gif) no-repeat left;
+}
+/*.hLinkOne li:before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-top: 4px solid #999;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+}*/
+/*将一个列表分两列*/
+.columnTwo {
+	width: 445px;
+}
+.columnTwo li {
+	float: left;
+	width: 200px;
+	/*margin: 0 2.5%;*/
+}
+
+
+/*头部搜索*/
+.serch {
+	float: right;
+	height: 34px;
+	display: flex;
+	align-items: center;
+}
+.serch fieldset {
+	border: 1px solid #a5a5a5;
+}
+
+.serch form {
+	width: 100%;
+	padding: 0 10px;
+}
+.iptOne {
+	border: none;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 10px;
+}
+.iptOne:focus {
+	outline: none;
+}
+.iptBt {
+	border: none;
+	height: 25px;
+	width: 25px;
+	background: url(https://image.wanda.cn/statics/images/web/ps1/ico/ico-sch-btn.png) no-repeat center;
+}
+/*头部导航*/
+.headNavigation {
+	z-index: 5;
+	width: 100%;
+	height: 82px;
+	background-color: #1c4987;
+	color: #fff;
+}
+.headNavigation a {
+	color: #fff;
+}
+.headNtbox {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+.headNtbox span {
+	font: bold 30px "黑体";
+	position: absolute;
+	top: 15px;
+}
+.headNtbox > ul {
+	position: absolute;
+	right: 0;
+	top: 35px;
+	list-style: none;			
+
+}
+.headNtbox > ul > li {
+	float: left;
+	position: relative;
+	margin-left: 5px;
+	
+}
+.headNtbox li {
+	height: 35px;
+	width: 100px;
+	text-align: center;
+	line-height: 35px;
+	background-color: #1c4987;
+}
+.naviPosition {
+	display: none;
+	position: absolute;
+	z-index: 999;
+}
+.headNtul {
+	/*position: absolute;*/
+	/*display: block;*/
+	/*display: none;*/
+	list-style: none;
+	margin-left: 0;
+	background: #1c4987;
+	font-size: 14px;
+}
+.headNtul a:hover {
+	color: #90e5ff;
+}
+/*未实现鼠标事件*/
+/*.headNtul li {
+	display: none;
+	z-index: 999;
+}*/
+
+/*中间大图轮播部分*/
+.pictureList {
+	width: 1000px;
+	margin: 0 auto;
+	height: 292px;
+	position: relative;
+	z-index: 3;
+
+}
+.listImg {
+	z-index: 3;
+}
+.pictureList img {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1000px;
+	height: 292px;
+	z-index: 0;
+	/*z-index: 0;*/
+	/*opacity: 0;*/
+}
+/*动画渐进与渐出*/
+@keyframes roteImg {
+	0%{opacity: 0;
+		display: block;}
+	100%{opacity: 1;}
+}
+@keyframes rote_Img {
+	0%{opacity: 1;}
+	100%{opacity: 0;
+		display: none;}
+}
+.opacityImg {
+	animation: roteImg 3s;
+}
+.opacityImgdis {
+	animation: rote_Img 3s;
+}
+/*按钮样式*/
+.imgPlotList {
+	position: absolute;
+	display: block;
+	z-index: 10;
+	bottom: 15px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 999;
+}
+.imgPlot {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	margin: 0 5px;
+	background-color: #bbb;
+	border-radius: 6.5px;
+}
+
+/*中间内容部分*/
+.webBody {
+	width: 1000px;
+	margin: 0 auto;
+	clear: both;
+
+}		
+/*左边内容部分*/
+.leftBody {
+	float: left;
+	width: 410px;
+	overflow-x: hidden;
+}
+
+/*标题部分*/
+h2 {
+	display: block;
+	position: relative;
+}
+
+.headAlink {
+	font: bold 16px "微软雅黑";
+	border-bottom: 1px solid #d3d3d3;
+	color: #1d1d1d;
+	position: relative;
+	display: block;
+	padding-bottom: 10px;
+}
+.moreLink {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 14px;
+	font-weight: normal;
+	color: #999;
+	display: inline;
+	line-height: 18px;
+}
+/*新闻部分*/
+.leftBody ul {
+
+}
+.leftBody li {
+	font-size: 14px;
+	margin-top: 10px;
+	position: relative;
+	display: block;
+	padding: 0 40px 0 10px;
+	line-height: 21px;
+	color: #005bac;
+	height: 21px;
+	/*overflow: hidden;*/
+}
+.leftBody li a {
+	display: inline-block;
+	/*overflow: hidden;*/
+	/*text-overflow: ellipsis;*/
+	width: 342px;
+	height: 21px;
+	overflow: hidden;
+}
+.leftBody li a:hover {
+	text-decoration: underline;
+}
+/*新闻日期*/
+.newsDate {
+	position: absolute;
+	right: 0;
+	font-size: 12px;
+	color: #999;
+	line-height: 21px;
+}
+/*新闻标题前标志*/
+.newsPlot {
+	border: 2px solid #dcdcdc;
+	top: 10px;
+	position: absolute;
+	left: 0;
+}
+/*模块直接间隔*/
+.mgint {
+	margin-bottom: 25px;
+}
+/*左边集团要闻部分图片*/
+.impImg img {
+	width: 163px;
+	height: 107px;
+	display: block;
+	border: none;
+}
+.impImg {
+	position: relative;
+	margin-top: 6px;
+
+}
+.imgH {
+	width: 240px;
+	height: 107px;
+	position: absolute;
+	right: 0;
+	top: 0
+}
+.imgH h3 {
+	color: #005bac;
+	line-height: 22px;
+	font-weight: normal;
+	font-size: 16px;
+}
+.imgH p {
+	color: #aeaeae;
+	font-size: 12px;
+	text-align: justify;
+	line-height: 20px;
+	margin-top: 6px;
+}
+
+/*视频中心*/
+.indexVideo {
+	margin-top: 15px;
+	width: 410px;
+	overflow: hidden;
+	position: relative;
+}
+.indexVideoBig {
+	top: 0;
+	width: 308px;
+	height: 205px;
+}
+.indexVideoBig img {
+	width: 308px;
+	height: 205px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+}
+.indexVideoBig span {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	line-height: 30px;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	display: block;
+	background-color: rgba(0,0,0,.5);
+}
+.indexVideoBig li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 308px;
+	height: 100%;
+	display: block;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	z-index: -1;
+}
+.videoBox {
+	position: relative;
+	margin-top: 10px;
+}
+.indexVideoSmall {
+	width: 96px;
+	height: 205px;
+	position: absolute;
+	right: 0;
+	top: 0;			
+}
+.indexVideoSmall a img {
+	height: 63px;
+	width: 96px;
+	margin-bottom: 9px;
+	display: block;
+}
+.indexVideoSmall a {
+	height: 63px !important;
+	width: 96px !important;
+	/*display: block;*/
+}
+/*大视频链接播放按钮样式*/
+.videoButton {
+	position: absolute;
+	top: 72px;
+	left: 124px;
+	width: 60px;
+	height: 60px;
+	background: url(https://image.wanda.cn/statics/images/web/ps1/ico/ico-play-btn2.png);
+}
+/*视频链接的蓝色border框*/
+.video-border {
+	position: absolute;
+	width: 95px;
+	height: 62px;
+	right: 0;
+	top: 0px;
+	border: 1px solid blue;
+}
+
+/*.indexVideoSmall li {
+	margin: 0;
+	padding: 0;
+	height: 92px;
+}*/
+/*右边内容部分*/
+.rightBody {
+	width: 560px;
+	float: right;
+	position: relative;
+
+}
+/*右边标题部分*/
+.rgtTopList {
+	position: relative;
+	height: 41px;
+	line-height: 41px;
+	font-size: 14px;
+	z-index: 10;
+}
+.rgtTopList ul {
+	display: flex;
+	justify-content: space-between;
+}
+.rgtTopList li {
+	list-style: none;
+	/*float: left;*/
+	margin: -1px 0 0 1px;
+}
+.rgtTopList a {
+	background-color: #3767a7;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 5px 5px 0 0;
+	width: 135px;
+	border: 1px solid #3767a7;
+	border-bottom: none;
+	display: block;
+	text-align: center;
+}
+.addListClass {
+	background-color: #fff !important;
+	color: #3368b0 !important;
+	height: 51px !important;
+	box-shadow: 0px -10px 10px 2px #dfdfdf;
+	font-weight: bold;
+	font-size: 16px !important;
+	/*border: none !important;*/
+	border: 1px solid #ddd !important;
+	border-bottom: none !important;
+	border-radius: 5px 5px 0 0;
+	margin: -10px -1px 0 -1px;
+	padding-bottom: 1px;
+	line-height: 51px;
+}
+
+/*右边标题下内容*/
+.rgtBody {
+	border: 1px solid #ddd;
+	/*border-top: none;*/
+	position: relative;
+	box-shadow: -5px 5px 5px #eee,5px 5px 5px #eee;
+	height: 1027px;
+	z-index: 0;
+	margin-bottom: 35px;
+	padding: 15px;
+}
+.qiLingNet {
+	width: 560px;
+	height: 1028
+}
+
+
+/*右边商业部分*/
+.shangye-index {
+	/*display: none;*/
+}
+.shangye-index h2 {
+	font-size: 16px;
+	margin: 30px 0 20px 0;
+}
+.canve-index {
+	width: 528px;
+	height: 346px;
+	background-color: #aaa;
+}
+/*酒店*/
+.hotel-index {
+	width: 528px;
+	/*height: 127px;*/
+}
+.hotel-index table {
+	max-width: 100%;
+	/*line-height: 1.5;*/
+	text-align: center;
+	border-collapse: collapse;
+}
+.hotel-index img {
+	width: 192px;
+	height: 42px;
+}
+.hotel-index td {
+	border: 1px solid #ddd;
+	height: 63px;
+	width: 263px;
+}
+/*境外项目*/
+/*境外项目整体盒子div*/
+.other-index {
+	width: 100%;
+	height: 335px;
+	background-color: #aaa;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	display: flex;
+}
+/*包涵img的ul,设置宽，用作动画*/
+.other-index ul {
+	width: 1056px;
+	height: 335px;
+	position: absolute;
+	left: 0;
+}
+/*设置包涵图片的li样式*/
+.other-index li {
+	width: 528px;
+	list-style: none;
+	float: left;
+}
+/*设置每个图片的宽高*/
+.other-index img {
+	width: 100%;
+	height: 335px;
+}
+/*设置境外项目轮播按钮*/
+.other-plot a {
+	width: 25px;
+	height: 48px;
+	color: #000;
+}
+/*境外项目箭头按钮样式*/
+.other-left {
+	position: absolute;
+	top: 130px;
+	left: 0px;
+	background: url(https://image.wanda.cn/statics/images/web/ps1/ico/prev2.png);
+}
+.other-right {
+	display: none;
+	position: absolute;
+	top: 130px;
+	right: 0px;
+	background: url(https://image.wanda.cn/statics/images/web/ps1/ico/next2.png);
+}
+
+
+
+/*文化部分*/
+.movie-index {
+	display: none;
+
+}
+.movie-index h2 {
+	font-size: 16px;
+	margin: 30px 0 20px 0;
+}
+/*城市选择*/
+.cityChose {
+	width: 530px;
+	height: 294px;
+	background-color: red;
+	position: relative;
+	overflow: hidden;
+}
+/*.cityBt {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+}
+.cityBtbox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}*/
+.cityName {
+	position: absolute;
+	z-index: 99;
+	top: 0;
+	width: 535px;
+	height: 45px;
+	border-bottom: 1px solid #ddd;
+}
+.cityName a {
+	display: block;
+	width: 107px;
+	height: 44px;
+	float: left;
+	line-height: 45px;
+	color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+.addCityClass {
+	border-bottom: 1px solid #fff;
+}
+.cityLr {
+	position: absolute;
+	z-index: 99;
+	right: 0;
+	bottom: 20px;
+}
+.cityLr img {
+	margin-right: 20px;
+}
+.cityBox {
+	width: 3180px;
+	height: 294px;
+	position: absolute;
+	top: 0;
+	left: -530px;
+}
+.cityBody {
+	position: relative;
+	width: 530px;
+	height: 294px;
+	float: left;
+}
+.cityBody h4 {
+	position: absolute;
+	left: 10px;
+	bottom: 20px;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 25px;
+	color: #fff;
+	height: 50px;
+}
+.cityBody p {
+	font-size: 14px;
+}
+
+/*七零影视列表*/
+.yx-list table {
+	position: absolute;
+	right: 5px;
+	border-spacing: 10px;
+	width: 550px;
+}
+.yx-list td {
+	border: 1px solid #ddd;
+	width: 257px;
+	max-height: 128px;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+.yx-list td img {
+	width: 128px;
+	height: 128px;
+	display: block;
+}
+.yx-text {
+	height: 128px;
+	width: 128px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	/*width: 128px;*/
+}
+.yx-text h3 {
+	padding: 0 0 6px 0;
+	margin: 6px 6px;
+	border-bottom: 1px solid #ddd;
+	line-height: 14px;
+	/*height: 14px;*/
+}
+.yx-text a {
+	/*font: 14px bold #333;*/
+	font-size: 14px;
+	color: #333;
+	/*font: bold;*/
+	/*display: inline-block;*/
+	/*width: 100%;*/
+	
+}
+.yx-text p {
+	font-size: 12px;
+	line-height: 18px;
+	color: #666;
+	height: 90px;
+	overflow: hidden;
+	margin: 0 6px;
+}
+/*七零体育*/
+.sport-bt {
+	position: absolute;
+	bottom: 15px;
+}
+.sport-bt img {
+	width: 530px;
+	height: 170px;
+}
+
+/*七零网络部分*/
+.qiLingNet {
+	display: none;
+	/*background-color: grey;*/
+	width: 100%;
+}
+.netBody {
+	width: 100%;
+	margin-top: 5px;
+
+}
+.netBody li {
+	list-style: none;
+	padding-bottom: 17px;
+	margin-bottom: 17px;
+	width: 100%;
+	height: 132px;
+	border-bottom: 1px solid #ddd;
+}
+.netNews ul {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+
+}
+.netNews li {
+	width: 253px;
+	height: 205px;
+	margin-bottom: 21px;
+	list-style: none;
+}
+.netNews li:nth-child(even) {
+	margin-left: 21px;
+}
+.netBox {
+	width: 286px;
+	height: 100%;
+	float: right;
+	position: relative;
+}
+.netBox h3 {
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+}
+.netBox p {
+	margin-top: 10px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: justify;
+	color: #666;
+}
+.lookMore {
+	display: block;
+	width: 48px;
+	height: 28px;
+	padding: 0 10px;
+	border: 1px solid #194c90;
+	color: #194c90;
+	font-size: 12px;
+	line-height: 28px;
+	/*float: right;*/
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.newsBox {
+	width: 253px;
+	height: 82px;
+}
+.newsBox h3 {
+	width: 100%;
+    height: 18px;
+    overflow: hidden;
+    margin: 5px 0 ;
+    line-height: 18px;
+    font-size: 100%;
+}
+.newsBox p {
+	line-height: 18px;
+    height: 54px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #666;
+    text-align: justify;
+}
+
+
+/*七零金融*/
+.qiFinancial {
+	display: none;
+}
+.qiFinancial li {
+	list-style: none;
+}
+.qiFinancial h2 {
+	font-size: 16px;
+	margin: 10px 0;
+	color: #333;
+}
+.m3020 {
+	margin: 30px 0 20px 0 !important;
+}
+.qiFinancial p {
+	line-height: 1.8;
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 12px;
+}
+
+
+/*设置一个盒子撑开布局*/
+.indexHight {
+	width: 1000px;
+	clear: both;
+}
+/*		.indexVideoSmall ul{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	right: 0;
+	top: 0;*/
+/*}*/
+/*底下log链接*/
+
+.linkLogNew {
+	width: 100%;
+	margin: 0 auto;
+	background: #f2f2f2;
+}
+.logBox {
+	width: 1000px;
+	padding: 10px 0;
+	margin: 0 auto;
+	/*background: #f2f2f2;*/
+}
+.logBox ul {
+	display: flex;
+	justify-content: space-between;
+
+}
+.linkLogNew li {
+	position: relative;
+	list-style: none;
+	line-height: 42px;
+	color: #959595;
+}
+.logBox span {
+	float: right;
+	line-height: 42px;
+	/*height: 42px;*/
+	color: #959595;
+	font-size: 16px;
+}
+.logBox a {
+	height: 42px;
+	display: block;
+}
+.linkLogNew img {
+	width: 55px;
+	height: 40px;
+	opacity: .5;
+}
+/*网站底部链接部分*/
+.bottomBgck {
+	width: 100%;
+	background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1506232935399&di=1297c5c25e6b8c61f4c954d8e5545759&imgtype=0&src=http%3A%2F%2Fimg3.redocn.com%2Ftupian%2F20160201%2Fshenhuijianbianhuandengpianbeijing_5844627_small.jpg) no-repeat;
+	background-size: 100% 110%;
+}
+.bottomLink {
+	width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.bottomLink dt {
+	color: #d4d4d4;
+	padding: 10px 0;
+}
+.bottomLink dd {
+	position: relative;
+	font-size: 12px;
+	line-height: 1.8;
+	
+}
+.bottomLink a {
+	margin-left: 10px;
+	color: #989696;
+}
+.bottomLink a:hover {
+	color: #fff;
+}
+.bottomLink dd span {
+	border: 2px solid #989696;
+	top: 10px;
+	position: absolute;
+	left: 0;
+}
+/*.bott*/
+/*底部网站公司地址信息*/
+.companyMg {
+	width: 100%;
+	background-color: #333;
+	border: 1px solid #404040;
+}
+.companyBox {
+	width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+	color: #aaa;
+	line-height: 27px;
+	height: 27px;
+}
