@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow: hidden;
+}
+
+/*显示背景样式*/
+#routerHeight {
+	width: 100%;
+	background: #eee;
+	overflow: auto;
+}
+
+/*导航样式*/
+.allIndex {
+	position: absolute;
+	/*bottom: 0;*/
+	width: 100%;
+	height: 7%;
+	background: #fff;
+	border-top: 1px solid #ddd;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.allIndex a {
+	width: 25%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/*.allIndex a:hover {
+	background: #666;
+}*/
+
+/*聊天栏目入口*/
+.chatout {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+	text-decoration: none;
+	font-size: 13px;
+	color: #000;
+}
+.chatOutUser {
+	width: 80%;
+	overflow: hidden;
+	display: flex;
+	justify-content: flex-start;
+	padding: 5px;
+}
+.chatOutUser div {
+	margin-left: 15px;
+	margin-top: 5px;
+}
+.chatOutMsg {
+	color: #666;
+	font-size: 12px;
+}
+.chatTime {
+	text-align: center;
+	height: 14px;
+	line-height: 14px;
+	margin-right: 5px;
+	color: #666;
+	font-size: 12px;
+}
+
+/*好友栏*/
+.friendsbus {
+	background: #fff;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 5px 10px;
+	text-decoration: none;
+
+}
+.friendsbus span {
+	margin-left: 10px;
+	font-size: 14px;
+	color: #000;
+}
+
+/*头像的圆边样式*/
+.borderra {
+	border-radius: 5px;
+}
+
+/*个人信息*/
+.addInformation {
+	padding: 7px 10px !important;
+}

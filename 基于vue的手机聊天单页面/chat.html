@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>chat</title>
+	<link rel="stylesheet" type="text/css" href="css/myChat.css">
+</head>
+<body>
+	<div id="app">
+		<!-- 视图 -->
+		<div id="routerHeight">
+			<router-view></router-view>
+		</div>
+		
+		<!-- 导航 -->
+		<div class="allIndex">
+			<router-link to="/chat"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1105922480,1672123235&fm=27&gp=0.jpg" width="40" height="40"></router-link>
+			<router-link to="/friends"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511003826222&di=c482483d746ba5c8422e83d3b86a87e8&imgtype=0&src=http%3A%2F%2Fimage5.huangye88.com%2F2013%2F03%2F21%2F5f2bd87a90a70229.jpg" width="40" height="40"></router-link>
+			<router-link to="/more"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3572258698,3789554449&fm=27&gp=0.jpg" width="40" height="40"></router-link>
+			<router-link to="/user"><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1608661816,3207861660&fm=27&gp=0.jpg" width="40" height="40"></router-link>
+		</div>
+		
+	</div>
+	
+	<!-- 聊天栏入口 -->
+	<template id="chat-out">
+		<div>
+			<a
+				class="chatout"
+				:href="list.hrf"
+				v-for="list in lists"
+			>
+			<div class="chatOutUser">
+				<!-- 用户头像 -->
+				<img :src="list.img" width="40" height="40" class="borderra">
+				<!-- 用户名和上一条聊天记录 -->
+				<div>
+					<p>{{list.ID}}</p>
+					<p class="chatOutMsg">{{list.msg}}</p>
+				</div>
+			</div>
+			
+			<!-- 时间戳 -->
+			<p class="chatTime">{{list.time}}</p>		
+			</a>
+		</div>
+	</template>
+
+	<!-- 好友栏单元素 -->
+	<template id="friends-bus">
+		<div>
+			<div>
+				<a
+					class="friendsbus"
+					:href="list.hrf"
+					v-for="list in headlists"
+				>
+					<img :src="list.img" width="35" height="35" class="borderra">
+					<span>{{list.msg}}</span>
+				</a>
+			</div>
+			<div style="height: 20px"></div>
+			<div>
+				<a
+					class="friendsbus"
+					:href="list.hrf"
+					v-for="list in lists"
+				>
+					<img :src="list.img" width="35" height="35" class="borderra">
+					<span>{{list.ID}}</span>
+				</a>
+			</div>
+			
+		</div>
+	</template>
+
+	<!-- 发现 -->
+	<template id="findMore">
+		<div>
+			<div>
+				<a
+					class="friendsbus"
+					:href="list.hrf"
+					v-for="list in lists"
+				>
+					<img :src="list.img" width="35" height="35" class="borderra">
+					<span>{{list.ID}}</span>
+				</a>
+			</div>
+		</div>
+	</template>
+
+	<!-- 主页 -->
+	<template id="information">
+		<div>
+			<div>
+				<a
+				class="chatout"
+				:href="list.hrf"
+				style="margin: 10px 0;border-radius: 8px;"
+				>
+				<div class="chatOutUser addInformation">
+					<!-- 用户头像 -->
+					<img :src="list.img" width="50" height="50" class="borderra">
+					<!-- 用户名和账号 -->
+					<div>
+						<p>{{list.ID}}</p>
+						<span class="chatOutMsg">账号：{{list.msg}}</span>
+					</div>
+				</div>
+				
+				<!-- 二维码 -->
+				<img src="list.img2" width="20" height="20" style="margin-right: 10px;">		
+				</a>
+			</div>
+			<test></test>
+		</div>
+	</template>
+
+	<template id="test">
+		<div>尝试</div>
+	</template>
+<script type="text/javascript">
+	document.getElementById('app').requestFullScreen()
+</script>
+	
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-router.js"></script>
+<script type="text/javascript" src="js/vue-resource.min.js"></script>
+<script type="text/javascript" src="js/myBus.js"></script>
+<script type="text/javascript" src="js/content.js"></script>
+<script type="text/javascript" src="js/myRouter.js"></script>
+</body>
+</html>
