@@ -12,5 +12,5 @@
   3.表格操作
     地址： https://xuduogui.github.io/xuduogui.io/sortTable.html
     
-  
-  
+  4.一个类似黑白格的小游戏
+    地址： https://xuduogui.github.io/xuduogui.io/movePicture.html
