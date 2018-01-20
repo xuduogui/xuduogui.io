@@ -1,0 +1,95 @@
+获取歌单图片：
+    data.playlists[0].coverImgUrl
+歌单名称：
+    data.playlists[0].name
+歌单ID： 
+    data.playlists[0].id
+
+歌单歌曲列表：
+    playlist.tracks[i]
+    {name: "棉花糖", id: 394748, pst: 0, t: 0, ar: [{id: 13584, name: "至上励合", tns: [], alias: []}], alia: [],…}
+
+
+
+笔记： 1，在使用异步函数的时候，用到了return
+
+    MYHTTP(context,myurl) {
+        // 合并完整的地址
+        let thisUrl = "http://localhost:3000" + myurl
+        // 开发测试的地址
+        // let thisUrl = "http://localhost:8080" + myurl
+        return axios({
+            method: 'get',
+            url: thisUrl,
+        }).then( 
+            res => res
+        ).catch(err => {
+            let errData = { "playlists": [{ "name": "这是一次请求失败", "id": 2049434859, "trackNumberUpdateTime": 1515514660232, "status": 0, "userId": 259040755, "createTime": 1515350545186, "updateTime": 1515514660232, "subscribedCount": 69, "trackCount": 24, "cloudTrackCount": 0, "coverImgUrl": "http://p1.music.126.net/WsSTdVP2VE9ujGsflnu0Zg==/18789554209229089.jpg", "coverImgId": 18789554209229089, "description": "我对你的喜欢\n是冬日里的小美好\n是晚上睡不着的循环歌单\n\n是你平静的呼吸\n是你嘴角上扬暖暖的笑\n是你冻的脸红的可爱模样\n\n想带你一起流浪 沐浴阳光\n去完成温暖的想象\n你就我心中的棉花糖 甜蜜的梦想\n\n怎么办\n我好像 喜欢你呢\n\n比被窝更暖的是？我为你准备的暖心小恋曲~\n“冬日久违的阳光灿烂里，一些温柔清新的告白。”\n\n愿你感到些许温暖，感谢聆听。\n\n封面微博：吴磊 LEO\n一个阳光帅气的大男孩", "tags": ["华语", "流行", "浪漫"], "playCount": 19184, "trackUpdateTime": 1515522673801, "specialType": 0, "totalDuration": 0, "creator": { "defaultAvatar": false, "province": 440000, "authStatus": 1, "followed": false, "avatarUrl": "http://p1.music.126.net/eKcEL3WVOZdYjAfEQUdLqQ==/19052337486645099.jpg", "accountStatus": 0, "gender": 0, "city": 441300, "birthday": 947606400000, "userId": 259040755, "userType": 4, "nickname": "升柒君i", "signature": "动漫资讯号🌸小清新电音女声控🌸喜欢分享动态音乐🌸 如有问题请私信告知，可关注~ ", "description": "", "detailDescription": "", "avatarImgId": 19052337486645099, "backgroundImgId": 19021551161063068, "backgroundUrl": "http://p1.music.126.net/s7qfCR0kqnWdOGfmszJ1CQ==/19021551161063068.jpg", "authority": 0, "mutual": false, "expertTags": ["电子", "欧美"], "experts": { "2": "资讯达人" }, "djStatus": 10, "vipType": 11, "remarkName": null, "avatarImgIdStr": "19052337486645099", "backgroundImgIdStr": "19021551161063068", "avatarImgId_str": "19052337486645099" }, "tracks": null, "subscribers": [{ "defaultAvatar": false, "province": 370000, "authStatus": 0, "followed": false, "avatarUrl": "http://p1.music.126.net/g1TjEshgIdDwbsqMG12SuA==/18651015744007758.jpg", "accountStatus": 0, "gender": 2, "city": 370200, "birthday": -2209017600000, "userId": 576185398, "userType": 0, "nickname": "说着谎的匹诺曹", "signature": "", "description": "", "detailDescription": "", "avatarImgId": 18651015744007758, "backgroundImgId": 109951162868126486, "backgroundUrl": "http://p1.music.126.net/_f8R60U9mZ42sSNvdPn2sQ==/109951162868126486.jpg", "authority": 0, "mutual": false, "expertTags": null, "experts": null, "djStatus": 0, "vipType": 0, "remarkName": null, "avatarImgIdStr": "18651015744007758", "backgroundImgIdStr": "109951162868126486", "avatarImgId_str": "18651015744007758" }], "subscribed": null, "commentThreadId": "A_PL_0_2049434859", "newImported": false, "adType": 0, "highQuality": false, "privacy": 0, "ordered": true, "anonimous": false, "shareCount": 2, "coverImgId_str": "18789554209229089", "commentCount": 13 }, { "name": "Laidback Luke's 2017 Yearmix", "id": 2051667586, "trackNumberUpdateTime": 1515508967557, "status": 0, "userId": 543822823, "createTime": 1515505499153, "updateTime": 1515508967557, "subscribedCount": 45, "trackCount": 59, "cloudTrackCount": 0, "coverImgUrl": "http://p1.music.126.net/4PpRDjguWJsrwDhKBS67nQ==/109951163104460712.jpg", "coverImgId": 109951163104460712, "description": "Listen and follow this playlist containing all the tracks that I played in my 2017 yearmix!", "tags": ["欧美", "电子"], "playCount": 6428, "trackUpdateTime": 1515509408936, "specialType": 0, "totalDuration": 0, "creator": { "defaultAvatar": false, "province": 1000000, "authStatus": 1, "followed": false, "avatarUrl": "http://p1.music.126.net/kkHYFvs0Lz8Eh9TenoogVA==/18745573743949176.jpg", "accountStatus": 0, "gender": 1, "city": 1003000, "birthday": 214786800000, "userId": 543822823, "userType": 2, "nickname": "LaidbackLuke", "signature": "国际知名DJ／音乐人", "description": "荷兰电子音乐制作人，Mixmash创始人", "detailDescription": "荷兰电子音乐制作人，Mixmash创始人", "avatarImgId": 18745573743949176, "backgroundImgId": 109951162868126486, "backgroundUrl": "http://p1.music.126.net/_f8R60U9mZ42sSNvdPn2sQ==/109951162868126486.jpg", "authority": 0, "mutual": false, "expertTags": null, "experts": null, "djStatus": 0, "vipType": 0, "remarkName": null, "avatarImgIdStr": "18745573743949176", "backgroundImgIdStr": "109951162868126486", "avatarImgId_str": "18745573743949176" }, "tracks": null, "subscribers": [{ "defaultAvatar": false, "province": 1000000, "authStatus": 0, "followed": false, "avatarUrl": "http://p1.music.126.net/BkKQoGQFu0VAXumptVc9Gw==/19121606718946029.jpg", "accountStatus": 0, "gender": 1, "city": 1003000, "birthday": -2209017600000, "userId": 247140299, "userType": 0, "nickname": "interrysta", "signature": "I live for that enerGY ...", "description": "", "detailDescription": "", "avatarImgId": 19121606718946029, "backgroundImgId": 18963277044647402, "backgroundUrl": "http://p1.music.126.net/J49G6IlMKKFmzlwDxneX7w==/18963277044647402.jpg", "authority": 0, "mutual": false, "expertTags": null, "experts": null, "djStatus": 0, "vipType": 0, "remarkName": null, "avatarImgIdStr": "19121606718946029", "backgroundImgIdStr": "18963277044647402", "avatarImgId_str": "19121606718946029" }], "subscribed": null, "commentThreadId": "A_PL_0_2051667586", "newImported": false, "adType": 0, "highQuality": false, "privacy": 0, "ordered": false, "anonimous": false, "shareCount": 1, "coverImgId_str": "109951163104460712", "commentCount": 2 }], "code": 200, "more": true, "total": 1252 }
+            console.log(errData)  // errData
+            return errData
+        })
+    }
+    // 获取歌单列表数据
+    GETPLAYLIST({ dispatch }, obj) {
+        // 歌单地址： /top/playlist?limit=获取歌单数量&order=获取歌单类型（hot/new）
+        let strOne = '/top/playlist?limit=',
+            strTwo = '&order=',
+            link = strOne + obj.num + strTwo + obj.playtype
+        // 获取到数据
+        let myData = dispatch('MYHTTP', link)
+        console.log(myData) // promise
+        return myData
+    },
+    // 设置图片地址
+    SETPLAYPIC ({ dispatch, commit }, obj) {
+        let pic = dispatch('GETPLAYLIST',obj)
+        console.log(pic) //promise
+        for (let i = 0; i < pic.length; i++) {
+            let url = pic[i].coverImgUrl
+            commit('setPlayPic',url)
+        }
+    }
+
+    // 这里不是太明白上面为什么返回的是promise而不是函数的最终结果
+
+
+
+
+    
+{name: "该", id: 504686951, pst: 0, t: 0, ar: [{id: 12419710, name: "曲肖冰", tns: [], alias: []}],…},
+{name: "太迟", id: 426852531, pst: 0, t: 0, ar: [{id: 12108093, name: "于小冉", tns: [], alias: []}],…},
+{name: "过客", id: 445665094, pst: 0, t: 0, ar: [{id: 12292708, name: "是阿涵阿", tns: [], alias: []}],…},
+{name: "原谅", id: 329336, pst: 0, t: 0, ar: [{id: 10578, name: "张玉华", tns: [], alias: []}], alia: [],…},
+{name: "遗憾", id: 210287, pst: 0, t: 0, ar: [{id: 7439, name: "陈洁仪", tns: [], alias: []}], alia: [],…},
+{name: "失眠", id: 452804230, pst: 0, t: 0, ar: [{id: 166014, name: "金志文", tns: [], alias: []}],…},
+{name: "白夜", id: 509311810, pst: 0, t: 0, ar: [{id: 12656142, name: "尹姝贻", tns: [], alias: []}],…},
+{name: "感性", id: 35678876, pst: 0, t: 0, ar: [{id: 1160085, name: "Fine乐团", tns: [], alias: []}],…},
+{name: "当你", id: 108251, pst: 0, t: 0, ar: [{id: 3684, name: "林俊杰", tns: [], alias: []}], alia: [],…},
+{name: "遇萤", id: 32548266, pst: 0, t: 0, ar: [{id: 10902, name: "只有影子", tns: [], alias: []}], alia: [],…},
+
+
+
+笔记： vue中，修改state数据的时候发现没有修改成功，
+        目前未解决
+        
+
+笔记： .如何用js判断一个对象是不是Array
+  1.Array.isArray(obj) 调用数组的isArray方法
+  2.obj instanceof Array  判断对象是否是Array的实例
+  3.Object.prototype.toString.call(obj) ===‘[object Array]’  
+     Object.prototype.toString方法会取得对象的一个内部属性［［Class］］，然后依据这个属性，返回一个类似于［object Array］的字符串作为结果，call用来改变toString的this指向为待检测的对象
+  4.判断对象是否有push等数组的一些方法。（这个方法有兼容问题，但也是一个简单易用的方法）
+    
+    5.obj.constructor===Array   //true
+
+
+同理判断一个对象是否是函数：
+console.log(Object.prototype.toString.call(obj)==='[object Function]')    //true或false 
+
+
+笔记： 未完成： 1，播放页面的背景图片动态更换
+                2， 播放页面的按钮功能和界面优化
+                3，搜索结果的优化，没有结果的时候给提示
+                4, 添加歌手，排行榜等
+
+                新功能： 歌词部分
