@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>diamond</title>
+
+	<style type="text/css">
+
+/*		.phoneMode {
+			width: 360px;
+			height: 640px;
+			background-color: blue;
+		}*/
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			overflow: hidden;
+			background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505808830208&di=857539e7a967108bd509d8983fd11507&imgtype=0&src=http%3A%2F%2F58pic.ooopic.com%2F58pic%2F17%2F47%2F83%2F07m58PICrIU.jpg);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+		}
+		.backgrdColor {
+			width: 100%;
+			position: relative;
+			border: none;
+			overflow: hidden;
+		}
+		.kuai {
+			background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505812833758&di=2b1325cf3065ed74f5829a6fd5a6407d&imgtype=0&src=http%3A%2F%2Fpic22.nipic.com%2F20120722%2F6608733_145827890000_2.jpg);
+			position: absolute;
+			opacity: .5;
+		}
+		.bgin {
+			height: 900px;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			z-index: 0;
+			display: flex;
+			justify-content: center;
+			top: 50px;
+
+		
+		}
+		button {
+			display: block;
+			width: 150px;
+			height: 60px;
+			margin: 50px;
+			background-color: rgba(10,100,10,.5);
+			border-radius: 40px;
+			border: none;
+			font: bold 20px "黑体";
+			color: rgba(0,0,0,.5);
+		}
+		fieldset {
+			outline: none;
+			border: none;
+		}
+		.phoneMode {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="body">
+		<div class="phoneMode" id="phoneMode">
+			<p>获得：0分</p>
+			<p>失去：0分</p>
+			<div id="backgrd" class="backgrdColor">
+			</div>
+		</div>
+		<div class="bgin" id="bgin">
+			<fieldset>
+				<button>等级一</button>
+				<button>等级二</button>
+				<button>等级三</button>
+			</fieldset>
+		</div>
+	</div>
+<script type="text/javascript">
+	"use strict";
+	window.onload=function(){ 
+		if(document.documentElement.scrollHeight <= document.documentElement.clientHeight) { 
+			bodyTag = document.getElementsByTagName('body')[0]; 
+			bodyTag.style.height = document.documentElement.clientWidth / screen.width * screen.height + 'px'; 
+		} 
+		setTimeout(function() { 
+		window.scrollTo(0, 1) 
+		}, 0); 
+	}; 
+
+	var h = document.documentElement.clientHeight;
+	var bt1 = document.getElementsByTagName('button');
+	var phoneMode = document.getElementById('phoneMode');
+	var bginB = document.getElementById('bgin');
+	var bodyB = document.getElementsByTagName('body')
+	// bodyB.style.height = h + "px";
+	// bginB.style.height = h + "px";
+	// bgin.setAttribute("style","height:+h+"px"");
+	bt1[0].onclick = function (argument) {
+		// body...
+		bgin.style.display = "none";
+		phoneMode.style.display = "block";
+		setInterval(work,500);
+	}
+
+
+
+	var gradeLose = 0;
+	var gradeGet = 0;
+	var p = document.getElementsByTagName('p');
+	p[0].innerHTML = "获得："+gradeGet+"分";
+function work(argument) {
+
+	var backgrd = document.getElementById('backgrd');
+	//取得浏览器可视区域高度，并加给backgrd
+
+	backgrd.style.height = h +"px";
+	var div = document.createElement("div");
+	//var div = document.createElement("div");	
+	var h1 = backgrd.offsetWidth;
+	var num = null;
+	var timeT;
+	//制作一个块
+	function diamond(argument) {
+		backgrd.appendChild(div);
+		div.style.width = h1/4+"px";
+		div.style.height = h1/3+"px";
+		div.setAttribute("class","kuai");
+	}
+	//分数
+	//下落控制,点击消失
+	div.touchmove = function (ev) {
+		// body...
+		ev.preventDefault();
+	}
+	var i = 0;
+	var flag = true;
+	function down(argument) {
+		// if (i > h/2) {
+		// 	div.addEventListener("touchstart",gGet)
+		// 	}
+		if (flag) {
+						
+			if (i < h) {
+				if (i > h/2) {
+					div.addEventListener("touchstart",gGet)
+					}
+				if (flag) {
+					div.style.top = i +"px";
+					i = i + 5;
+					setTimeout(down,5);
+				}
+			} else {
+				lGet();
+			}
+			
+		}
+
+	}
+	setTimeout(down,5);
+	// function diar(argument) {
+	// 	// body...
+	// 	if (i > h/2) {
+	// 		div.addEventListener("touchstart",gGet)
+	// 		}
+	// }
+
+	function lGet(ev) {
+		// body...
+		console.log(1);
+		div.style.display = "none";
+		// ev.target.remove();
+		gradeLose++;
+		p[1].innerHTML = "失去："+gradeLose+"分";
+	}
+
+	function gGet(argument) {
+		// body...
+		gradeGet++;
+		console.gradeGet
+		div.style.display = "none";
+		p[0].innerHTML = "获得："+gradeGet+"分";
+		// clearInterval(timeT);
+		flag = false;
+	}
+
+
+	// function down(argument) {
+	// 	var i = 0;
+	// 	var timeT = setInterval(function (argument) {
+	// 		// body...
+	// 		if (i < h-30) {
+	// 			div.style.top = i +"px";
+	// 			i=i+6;
+	// 			if (i > h/2) {
+	// 				div.addEventListener("click",gGet);
+	// 			}
+	// 		} else {
+	// 			gradeLose++;
+	// 			p[1].innerHTML = "失去："+gradeLose+"分";
+	// 			console.log(gradeLose);
+	// 			clearInterval(timeT);
+	// 		}
+	// 	},1)
+
+	//生成随机数
+	function freeMth(argument) {
+		// body...
+		num = Math.random();
+		num = Math.ceil(num * 4);//返回大于等于四的最小整数
+	}
+	//随机生成方块
+	 function free(argument) {
+	 	// body...
+	 	freeMth();
+	 	switch (num) {
+	 		case 1:div.style.left = "0";
+	 		break;
+	 		case 2:div.style.left ="25%";
+	 		break
+	 		case 3:div.style.left ="50%";
+	 		break;
+	 		case 4:div.style.left ="75%";
+	 		break;
+	 	}
+	 }
+	 // function disappear(argument) {
+	 // 	// body...
+	 // 	var height = div.style.top;
+	 // 	if (height > h/2) {
+	 // 		("click",function (argument) {
+	 // 			// body...
+	 // 			div.style.display = "none";
+	 // 		})
+	 // 	}
+	 // }
+	 // 	disappear();
+	 	diamond();
+		free();
+
+}
+	 // 点击消失效果
+
+</script>
+
+</body>
+</html>
